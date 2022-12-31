@@ -1,30 +1,31 @@
 {% extends 'base.html' %}
 
 {%block content %}
+<form  action="{% url 'parameters' %}" method="POST">
+	{% csrf_token %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+<div class="mb-3">
+  <input type="text" class="form-control" placeholder="Type Your Answer Here" id="focus" name="answer">
+  <input type="hidden" name="old_num_1"> <!--value="{{ num_1 }}" -->
+  <input type="hidden" name="old_num_2"> <!--value="{{ num_2 }}" -->
+</div> 
+<br/>
+<button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
 
 <h1>Parameters</h1>
 
 <svg viewBox="0 0 100 100" style="border: green solid;">
-	<text x="3" y="50.5" font-size="4">X</text>        
-	<text x="50.5" y="3" font-size="4">Y</text>
-	<path stroke="green" stroke-width=".2" d="M10 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M20 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M30 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M40 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M50 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M60 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M70 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M80 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M90 0 V100" />
-	<path stroke="green" stroke-width=".2" d="M0 10 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 20 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 30 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 40 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 50 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 60 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 70 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 80 H100" />
-	<path stroke="green" stroke-width=".2" d="M0 90 H100" />
 	<path stroke="red" stroke-width="1" fill="none" d="M20,20 l30,0 A10,10 0 0,1 50,40 l0,25 l-30,0 Z" />
 
 

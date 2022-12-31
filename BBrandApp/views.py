@@ -1,12 +1,24 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView 
-from .models import Post
+from .models import Post, Svg, SvgPath
+from users.models import Profile
 
+def user(request):
+	if request.method == "POST":
+		nameid = request.POST['userid']
+		context = {
+			'puser': Profile.objects.filter(user_id= int(nameid)),
+			'posts': Post.objects.filter(name_id= int(nameid)),
+		}
+		return render(request, 'user.html', context)
 
+	return render(request, 'user.html', {})
+		
+ 
 def home(request):
 	context = {
-		'posts': Post.objects.all()
+		'posts': Post.objects.all(),
 	}
 	return render(request, 'home.html', context)
 
@@ -52,8 +64,59 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		return False
 
 
+class SvgUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+	model = Svg
+	fields = ['title', 'wallType', 'wallRefNum', 'path', 'width', 'height']
+
+	def form_valid(self, form):
+		form.instance.title = self.request.title
+		return super().form_valid(form)
+
+	def test_func(self):
+		post = self.get_object()
+		if self.request.title == post.title:
+			return True
+		return False
+
+class SvgPathListView(ListView):
+	model = SvgPath
+	fields = ['title','startx', 'starty', 'linetype','PathRefNum','endx','endy','data1', 'data2','data3','data4','data5','data6','data7','data8','data9']
+	ordering = ['PathRefNum']
+	
+	def form_valid(self, form):
+		form.instance.title = self.request.title
+		return super().form_valid(form)
+
+	def test_func(self):
+		post = self.get_object()
+		if self.request.title == Svg.title:
+			return True
+		return False
+
 def about(request):
 	return render(request, 'about.html', {'title': 'About'})
+		
 
+""" # @login_required
 def parameters(request):
-	return render(request, 'parameters.html', {})
+	if request.method == 'POST':
+		Svg_form = SvgUpdateForm(request.POST, instance=request.title)
+		SvgPath_form = SvgPathUpdateForm(request.POST, request.FILES, instance=request.title.Svg)
+		if Svg_form.is_valid() and SvgPath_form.is_valid():
+			Svg_form.save()
+			SvgPath_form.save()
+			messages.success(request, f'Your account has been Updated!')
+			return render(request, 'svg_list.html', {})
+
+	else:
+		Svg_form = SvgUpdateForm(instance=request.title)
+		SvgPath_form = SvgPathUpdateForm(instance=request.title.Svg)
+
+
+# def parameters(request):
+#	return render(request, 'svg_list.html', {})"""
+
+
+	
+
+ 

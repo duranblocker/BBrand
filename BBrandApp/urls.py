@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, SvgUpdateView, SvgPathListView
 from . import views
 
 urlpatterns = [
@@ -9,6 +9,8 @@ urlpatterns = [
     path('post/<int:pk>/update', PostUpdateView.as_view(), name='post-update'), 
     path('post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),          
     path('about/', views.about, name='about'),
-    path('parameters/', views.parameters, name='parameters')
-]
+    path('svg/<int:pk>/list', SvgUpdateView.as_view(), name='svg-update'),
+    path('svg/<int:pk>/list', SvgPathListView.as_view(), name='svgpath-list'),
+    path('user/', views.user, name='user')
+    ]
 
