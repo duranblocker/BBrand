@@ -4,6 +4,21 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Svg, SvgPath
 from users.models import Profile
 
+def parameters(request):
+	if request.method == 'POST':
+		Svg_form = SvgUpdateForm(request.POST, instance=request.title)
+		SvgPath_form = SvgPathUpdateForm(request.POST, request.FILES, instance=request.title.Svg)
+		if Svg_form.is_valid() and SvgPath_form.is_valid():
+			Svg_form.save()
+			SvgPath_form.save()
+			messages.success(request, f'Your account has been Updated!')
+			return render(request, 'svg_list.html', {})
+
+	else:
+		Svg_form = SvgUpdateForm(instance=request.title)
+		SvgPath_form = SvgPathUpdateForm(instance=request.title.Svg)
+		return render(request, 'svg_list.html')
+
 def user(request):
 	if request.method == "POST":
 		nameid = request.POST['userid']
@@ -97,7 +112,6 @@ def about(request):
 	return render(request, 'about.html', {'title': 'About'})
 		
 
-""" # @login_required
 def parameters(request):
 	if request.method == 'POST':
 		Svg_form = SvgUpdateForm(request.POST, instance=request.title)

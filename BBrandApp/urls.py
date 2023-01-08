@@ -11,6 +11,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('svg/<int:pk>/list', SvgUpdateView.as_view(), name='svg-update'),
     path('svg/<int:pk>/list', SvgPathListView.as_view(), name='svgpath-list'),
+    path('parameters/', views.parameters, name= 'parameters'),
     path('user/', views.user, name='user')
     ]
 

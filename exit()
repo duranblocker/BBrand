@@ -1,0 +1,20 @@
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{0}: reset: moving to 152027e
+[33m01b2cda[m HEAD@{1}: reset: moving to 01b2cda
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{2}: reset: moving to 152027e
+[33m01b2cda[m HEAD@{3}: reset: moving to 01b2cda
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{4}: reset: moving to 152027e
+[33m01b2cda[m HEAD@{5}: reset: moving to 01b2cda
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{6}: reset: moving to 152027e
+[33m01b2cda[m HEAD@{7}: reset: moving to 01b2cda
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{8}: reset: moving to 152027e
+[33m01b2cda[m HEAD@{9}: reset: moving to 01b2cda
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{10}: reset: moving to 152027e
+[33mf0acd4a[m HEAD@{11}: commit: join tables user post
+[33m265aa52[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{12}: checkout: moving from master to 265aa5234d7e51a7493e6fc9ff31f762a3537eef
+[33m265aa52[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{13}: checkout: moving from 01b2cda6c2e9f8d1a68f17227f543d60e4968774 to master
+[33m01b2cda[m HEAD@{14}: commit: join tables user post
+[33mcf59bbf[m HEAD@{15}: commit: combine user post tables
+[33m152027e[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{16}: commit: linked user post databases
+[33m265aa52[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{17}: checkout: moving from master to origin
+[33m265aa52[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{18}: pull: Fast-forward
+[33m62db97b[m HEAD@{19}: commit (initial): initial commit
